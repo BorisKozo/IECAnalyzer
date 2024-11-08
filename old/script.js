@@ -55,14 +55,7 @@ function calculateSavedValue(rowData, parsedData) {
     });
 }
 
-function daysFormatter(params) {
-    if (params.value.length === 7) {
-        return 'בכל ימות השבוע';
-    }
-    if (params.value.every(value => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'].includes(value))) {
-        return 'א-ה';
-    }
-}
+
 
 function showSuppliersGrid(parsedData, vendors) {
     const rowData = vendorsToRowData(vendors);
@@ -92,89 +85,6 @@ function showSuppliersGrid(parsedData, vendors) {
     };
     const myGridElement = document.getElementById('suppliers-grid');
     agGrid.createGrid(myGridElement, gridOptions);
-}
-
-function showByTime(parsedData) {
-
-    const dataMap = new Map();
-    parsedData.forEach((item) => {
-        if (dataMap.has(item.time)) {
-            dataMap.set(item.time, dataMap.get(item.time) + item.value);
-        } else {
-            dataMap.set(item.time, item.value);
-        }
-    });
-
-    const data = [];
-    dataMap.forEach((value, key) => {
-        data.push([key, value]);
-    });
-
-console.log(data);
-
-    Highcharts.chart('by-time-container', {
-        chart: {
-            zooming: {
-                type: 'x'
-            },
-            panning: true,
-            panKey: 'shift'
-        },
-        title: {
-            text: 'Electricity usage per time',
-            align: 'left'
-        },
-        subtitle: {
-            subtitle: {
-                text: 'Click and drag to zoom in. Hold down shift key to pan.',
-                align: 'left'
-            },
-        },
-        xAxis: {
-            type: 'category',
-            labels: {
-            }
-        },
-        yAxis: {
-            title: {
-                text: 'KW'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            line: {
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
-
-        series: [{
-            type: 'line',
-            name: 'KW/h',
-            data: data
-        }]
-    });
-}
-
-function showAll(parsedData, vendors) {
-    drawAllPoints(parsedData);
-    showSuppliersGrid(parsedData, vendors);
-    showByTime(parsedData);
-}
-
-window.onload = () => {
-    const parsedData = parseInput(window.fake_data);
-    showAll(parsedData, window.vendors);
 }
 
 function loadData() {
