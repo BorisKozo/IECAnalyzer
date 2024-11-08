@@ -1,4 +1,4 @@
-window.fake_data =`
+export const fakeData =`
     " ","  "
 "שם לקוח","כתובת"
 " "," "

@@ -1,5 +1,19 @@
-window.vendors = {
-    cellcom: {
+export interface ITrack {
+  name: string;
+  discount: number;
+  startTime:string;
+  endTime:string;
+  days:string[];
+  comment?: string;
+}
+
+export interface IVendor {
+  name: string;
+  tracks: ITrack[];
+}
+
+export const vendors:IVendor[] = [
+    {
         name: 'סלקום',
         tracks: [
             {
@@ -46,7 +60,7 @@ window.vendors = {
             },
         ]
     },
-    pazgaz: {
+    {
         name: 'פזגז',
         tracks: [
             {
@@ -58,7 +72,7 @@ window.vendors = {
             },
         ]
     },
-    electra: {
+    {
         name: 'אלקטרה',
         tracks: [
             {
@@ -112,7 +126,7 @@ window.vendors = {
             },
         ]
     },
-    hot: {
+    {
         name: 'הוט energy',
         tracks: [
             {
@@ -156,7 +170,6 @@ window.vendors = {
                 startTime: '00:00',
                 endTime: '00:00',
                 days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                cap: 100,
                 comment: 'לקוחות HOT במסלול טריפל ו HOT MOBILE'
             },
             {
@@ -177,7 +190,7 @@ window.vendors = {
             },
         ]
     },
-    partner: {
+    {
         name: 'פרטנר חשמל',
         tracks: [
             {
@@ -217,7 +230,7 @@ window.vendors = {
             },
         ]
     },
-    bezeq: {
+    {
         name: 'בזק energy',
         tracks: [
             {
@@ -257,4 +270,4 @@ window.vendors = {
             },
         ]
     }
-}
+];
