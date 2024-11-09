@@ -1,4 +1,4 @@
-export const fakeData =`
+export const fakeData = location.host.startsWith('locfalhost')?`
     " ","  "
 "שם לקוח","כתובת"
 " "," "
@@ -35051,4 +35051,4 @@ export const fakeData =`
 "31/10/2024","23:15",.374
 "31/10/2024","23:30",.375
 "31/10/2024","23:45",.392
-`;
+`:'';

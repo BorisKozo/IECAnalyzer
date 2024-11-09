@@ -79,6 +79,7 @@ function calculateSavedValueForRow(row: IRowData, dataNodes: IDataNode[]) {
 function calculateSavedValue(rowData: IRowData[], dataNodes: IDataNode[]) {
     rowData.forEach((row) => {
         row.savedValue = calculateSavedValueForRow(row, dataNodes);
+
     });
 }
 
@@ -109,7 +110,7 @@ interface IDiscountTableProps {
 function DiscountTable({dataNodes}: IDiscountTableProps) {
     const rowData = vendorsToRowData(vendors);
     calculateSavedValue(rowData, dataNodes);
-    const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
+    const containerStyle = useMemo(() => ({ width: "100%", height: "300px" }), []);
     const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
 
     return (
