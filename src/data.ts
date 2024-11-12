@@ -1,4 +1,4 @@
-export const fakeData = location.host.startsWith('locfalhost')?`
+export const fakeData = location.host.startsWith('localhost')?`
     " ","  "
 "שם לקוח","כתובת"
 " "," "
