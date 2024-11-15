@@ -5,7 +5,7 @@ import {IDataNode} from "./utils";
 
 const chartDefaultOptions:Highcharts.Options = {
     title: {
-        text: 'שימוש כולל בכל פרק זמן',
+        text: 'שימוש כולל בכל מקטע זמן',
         align: 'right'
     },
     xAxis: {

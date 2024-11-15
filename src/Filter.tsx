@@ -25,18 +25,18 @@ function Filter({onFilterChanged, minDate, maxDate}: IFilterProps) {
     useEffect(() => {
         setStartDate(minDate.toDate());
         setEndDate(maxDate.toDate());
-    },[minDate, maxDate]);
+    }, [minDate, maxDate]);
 
     function handleOnChange(newStartDate?: Date, newEndDate?: Date) {
         const filterChangeResult = {
-            startDate:moment(startDate),
+            startDate: moment(startDate),
             endDate: moment(endDate),
         }
-        if (newStartDate){
+        if (newStartDate) {
             setStartDate(newStartDate);
             filterChangeResult.startDate = moment(newStartDate);
         }
-        if (newEndDate){
+        if (newEndDate) {
             setEndDate(newEndDate);
             filterChangeResult.endDate = moment(newEndDate);
         }
@@ -45,24 +45,35 @@ function Filter({onFilterChanged, minDate, maxDate}: IFilterProps) {
 
     return (<Form>
         <Form.Group as={Row} className="mb-1">
-            <Form.Label column sm="1" >החל מ:</Form.Label>
+            <Form.Label column sm="1">החל מ:</Form.Label>
             <Col sm="1">
-                <DatePicker minDate={minDate.toDate()} maxDate={maxDate.toDate()} className='form-control form-control-solid' selected={startDate} onChange={(date: Date) => {
-                    handleOnChange(date);
-                }}></DatePicker>
+                <DatePicker minDate={minDate.toDate()}
+                            maxDate={maxDate.toDate()}
+                            className='form-control form-control-solid'
+                            selected={startDate}
+                            dateFormat="dd/MM/yyyy"
+                            onChange={(date: Date) => {
+                                handleOnChange(date);
+                            }}></DatePicker>
             </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
             <Form.Label column sm="1">עד:</Form.Label>
             <Col sm="1">
-            <DatePicker minDate={minDate.toDate()} maxDate={maxDate.toDate()} className='form-control form-control-solid' selected={endDate} onChange={(date: Date) => {
-                handleOnChange(undefined,date);
-            }}></DatePicker>
+                <DatePicker
+                    minDate={minDate.toDate()}
+                    maxDate={maxDate.toDate()}
+                    className='form-control form-control-solid'
+                    selected={endDate}
+                    dateFormat="dd/MM/yyyy"
+                    onChange={(date: Date) => {
+                        handleOnChange(undefined, date);
+                    }}></DatePicker>
             </Col>
         </Form.Group>
         <Form.Group>
-            <Button className="btn-primary btn" onClick={()=>{
-                handleOnChange(minDate.toDate(),maxDate.toDate());
+            <Button className="btn-primary btn" onClick={() => {
+                handleOnChange(minDate.toDate(), maxDate.toDate());
             }}> איפוס</Button>
         </Form.Group>
     </Form>);

@@ -2,6 +2,7 @@ import {HighchartsReact, HighchartsReactProps} from "highcharts-react-official";
 import * as Highcharts from "highcharts";
 import React from "react";
 import {IDataNode} from "./utils";
+import moment, {Moment} from "moment";
 
 const chartDefaultOptions:Highcharts.Options = {
     chart: {
@@ -22,7 +23,12 @@ const chartDefaultOptions:Highcharts.Options = {
             align: 'right'
     },
     xAxis: {
-        type: 'datetime'
+        type: 'datetime',
+        labels:{
+            formatter:function ():string{
+                return moment(this.value).format('DD/MM/YY');
+            }
+        }
     },
     yAxis: {
         title: {
@@ -31,6 +37,12 @@ const chartDefaultOptions:Highcharts.Options = {
     },
     legend: {
         enabled: false
+    },
+    tooltip: {
+        formatter: function () {
+            const date:Moment = moment.unix(Number(this.x)/1000);
+            return `${date.format('ddd, DD/MM, HH:mm')} - <b>${this.y} watt</b>`;
+        }
     },
     plotOptions: {
         line: {
