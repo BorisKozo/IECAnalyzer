@@ -28,8 +28,8 @@ const columnDefs: ColDef[] = [
     {field: "comment", headerName: 'הגבלות', width: 520},
     {
         field: 'savedValue',
-        headerName: 'חיסכון בתקופת זמן',
-        width: 200,
+        headerName: 'חיסכון בתקופת זמן בשקלים',
+        width: 230,
         sort:'desc',
         valueFormatter: p => String(Math.round(p.value))
     },

@@ -14,12 +14,12 @@ const chartDefaultOptions:Highcharts.Options = {
         panKey: 'shift'
     },
     title: {
-        text: 'Electricity usage over time',
-        align: 'left'
+        text: 'שימוש בחשמל על פני הזמן',
+        align: 'right'
     },
     subtitle: {
-            text: 'Click and drag to zoom in. Hold down shift key to pan.',
-            align: 'left'
+            text: 'אפשר לבחור אזור בשביל זום או להחזיק שיפט בשביל לנוע לצדדים',
+            align: 'right'
     },
     xAxis: {
         type: 'datetime'

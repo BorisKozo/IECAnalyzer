@@ -5,8 +5,8 @@ import {IDataNode} from "./utils";
 
 const chartDefaultOptions:Highcharts.Options = {
     title: {
-        text: 'Electricity usage per time',
-        align: 'left'
+        text: 'שימוש כולל בכל פרק זמן',
+        align: 'right'
     },
     xAxis: {
         type: 'category',
