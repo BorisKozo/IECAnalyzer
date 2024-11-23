@@ -1,18 +1,19 @@
 export interface ITrack {
-  name: string;
-  discount: number;
-  startTime:string;
-  endTime:string;
-  days:string[];
-  comment?: string;
+    name: string;
+    discount: number;
+    startTime: string;
+    endTime: string;
+    days: string[];
+    comment?: string;
+    monthlyPay?: number;
 }
 
 export interface IVendor {
-  name: string;
-  tracks: ITrack[];
+    name: string;
+    tracks: ITrack[];
 }
 
-export const vendors:IVendor[] = [
+export const vendors: IVendor[] = [
     {
         name: 'סלקום',
         tracks: [
@@ -69,6 +70,8 @@ export const vendors:IVendor[] = [
                 startTime: '00:00',
                 endTime: '00:00',
                 days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                comment: 'תשלום חודשי קבוע',
+                monthlyPay: 2.9
             },
         ]
     },

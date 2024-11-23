@@ -1,3 +1,12 @@
+.by-time-series-name-tooltip {
+    width: 150px;
+    text-align: right;
+}
+
+.by-time-series-container {
+    display: flex;
+    justify-content: space-between;
+}
 body {
   --ag-legacy-styles-loaded: "true";
 }
