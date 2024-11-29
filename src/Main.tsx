@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.rtl.min.css";
 import LoadDataModal from "./LoadDataModal";
 import Filter, {FilterChangeFunction, IFilterValues} from "./Filter";
 import moment from "moment";
+import HowToGerReportModal from "./HowToGerReportModal";
 
 const defaultFilterValues: IFilterValues = {
     startDate: moment('2000-01-01'),
@@ -16,10 +17,11 @@ const defaultFilterValues: IFilterValues = {
 }
 
 const Main = () => {
-    const [fullData, setFullData] = useState<IDataNode[]>(parseCSVData(fakeData));
+    const [fullData, setFullData] = useState<IDataNode[]>(parseCSVData(''));
     const [filteredData, setFilteredData] = useState<IDataNode[]>([...fullData]);
     const [filterValues, setFilterValues] = useState<IFilterValues>(defaultFilterValues);
     const [showLoadModal, setShowLoadModal] = useState(false);
+    const [showHowToGetReportModal, setShowHowToGetReportModal] = useState(false);
 
     const onModalClose = useCallback((csvData: string) => {
         if (csvData) {
@@ -60,7 +62,12 @@ const Main = () => {
                     <Button variant="primary" size={"sm"} style={{width: "400px"}} onClick={() => {
                         setShowLoadModal(true);
                     }}>טען דו"ח חברת חשמל</Button>}
+                {fullData.length === 0 && <Button variant="info" size={"sm"} style={{width: "400px"}} onClick={() => {
+                    setShowHowToGetReportModal(true);
+                }}>איך לקבל דו"ח</Button>}
+
                 <LoadDataModal show={showLoadModal} onClose={onModalClose}></LoadDataModal>
+                <HowToGerReportModal show={showHowToGetReportModal} hide={()=>{setShowHowToGetReportModal(false)}}></HowToGerReportModal>
                 {fullData.length > 0 ? <Stack gap={2} direction={"vertical"}>
                     <Filter onFilterChanged={onFilterChanged} minDate={fullData[0].fullDateMoment} maxDate={fullData[fullData.length-1].fullDateMoment}></Filter>
                     <FullChart dataNodes={filteredData}></FullChart>
