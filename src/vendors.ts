@@ -79,42 +79,14 @@ export const vendors: IVendor[] = [
         name: 'אלקטרה',
         tracks: [
             {
-                name: 'היטק שנה 1',
+                name: 'היטק',
                 discount: 8,
                 startTime: '23:00',
                 endTime: '17:00',
                 days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             },
             {
-                name: 'היטק שנה 2',
-                discount: 9,
-                startTime: '23:00',
-                endTime: '17:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'היטק שנה 3',
-                discount: 10,
-                startTime: '23:00',
-                endTime: '17:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'power שנה 1',
-                discount: 5,
-                startTime: '00:00',
-                endTime: '00:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'power שנה 2',
-                discount: 6,
-                startTime: '00:00',
-                endTime: '00:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'power שנה 3',
+                name: 'power',
                 discount: 7,
                 startTime: '00:00',
                 endTime: '00:00',
@@ -229,7 +201,7 @@ export const vendors: IVendor[] = [
                 discount: 20,
                 startTime: '23:00',
                 endTime: '07:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'],
             },
         ]
     },
@@ -237,21 +209,7 @@ export const vendors: IVendor[] = [
         name: 'בזק energy',
         tracks: [
             {
-                name: 'חוסכים חכם שנה 1',
-                discount: 5,
-                startTime: '00:00',
-                endTime: '00:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'חוסכים חכם שנה 2',
-                discount: 6,
-                startTime: '00:00',
-                endTime: '00:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            },
-            {
-                name: 'חוסכים חכם שנה 3',
+                name: 'חוסכים חכם',
                 discount: 7,
                 startTime: '00:00',
                 endTime: '00:00',
@@ -269,7 +227,7 @@ export const vendors: IVendor[] = [
                 discount: 20,
                 startTime: '23:00',
                 endTime: '07:00',
-                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'],
             },
         ]
     }

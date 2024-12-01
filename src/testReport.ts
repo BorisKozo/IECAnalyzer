@@ -1,4 +1,4 @@
-export const fakeData = location.host.startsWith('localhost')?`
+export const testReport = location.host.startsWith('localshost')?`
     " ","  "
 "שם לקוח","כתובת"
 " "," "
