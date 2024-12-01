@@ -11,6 +11,7 @@ import Filter, {FilterChangeFunction, IFilterValues} from "./Filter";
 import moment from "moment";
 import HowToGerReportModal from "./HowToGerReportModal";
 import {fakeData} from "./fakeData";
+import IdleTimeTable from "./IdleTimeTable";
 
 const defaultFilterValues: IFilterValues = {
     startDate: moment('2000-01-01'),
@@ -83,6 +84,7 @@ const Main = () => {
                             maxDate={fullData[fullData.length - 1].fullDateMoment}></Filter>
                     <FullChart dataNodes={filteredData}></FullChart>
                     <ByTimeChart dataNodes={filteredData}></ByTimeChart>
+                    <IdleTimeTable dataNodes={filteredData}></IdleTimeTable>
                     <DiscountTable dataNodes={filteredData}></DiscountTable>
                 </Stack> : <div></div>}
             </section>

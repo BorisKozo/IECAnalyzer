@@ -25,8 +25,8 @@ const columnDefs: ColDef[] = [
     {field: "endTime", headerName: 'שעת סיום', width: 120},
     {field: "days", headerName: 'ימים', valueFormatter: daysFormatter},
     {field: "discount", headerName: 'הנחה', valueFormatter: p => p.value + '%', width: 100},
-    {field: "monthlyPay", headerName: 'תשלום חודשי קבוע'},
-    {field: "comment", headerName: 'הגבלות', width: 520},
+    {field: "monthlyPay", headerName: 'תשלום חודשי קבוע', width: 160},
+    {field: "comment", headerName: 'הגבלות', width: 450},
     {
         field: 'savedValue',
         headerName: 'חיסכון בתקופת זמן בשקלים',
@@ -128,6 +128,7 @@ function DiscountTable({dataNodes}: IDiscountTableProps) {
 
     return (
         <div style={containerStyle}>
+            <h5>הנחות פוטנציאליות לפי מסלול בתקופת הזמן הנבחרת</h5>
             <div
                 style={gridStyle}
                 className={
