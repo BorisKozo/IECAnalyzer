@@ -12,7 +12,7 @@ const chartDefaultOptions: Highcharts.Options = {
     xAxis: {
         type: 'category',
         labels: {},
-        crosshair:true
+        crosshair: true
     },
     yAxis: {
         title: {
@@ -37,7 +37,7 @@ const chartDefaultOptions: Highcharts.Options = {
         }
     },
     tooltip: {
-        useHTML:true,
+        useHTML: true,
         shared: true,
         headerFormat: '<span>{point.key}</span>',
         pointFormat: '<div class="by-time-series-container"><span><b>{point.y} W</b></span>' +
@@ -54,13 +54,19 @@ const ALL_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const WEEK_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'];
 const WEEK_END_DAYS = ['Fri', 'Sat'];
 
+function timeToNumber(time: string): number {
+    const [hour, minute] = time.split(':');
+    return Number(hour) * 100 + Number(minute);
+}
+
 function ByTimeChart({dataNodes}: IByTimeChartProps) {
-    function calculateData(dataNodes: IDataNode[], relevantDays: string[]): [number, number][] {
+    function calculateData(dataNodes: IDataNode[], relevantDays: string[]): [string, number][] {
         const dataMap = new Map();
         dataNodes.forEach((item) => {
-            if (!relevantDays.includes(item.fullDateMoment.format('ddd'))){
+            if (!relevantDays.includes(item.fullDateMoment.format('ddd'))) {
                 return;
             }
+            //console.log(item.fullDateMoment.format('HH:mm'));
             if (dataMap.has(item.time)) {
                 dataMap.set(item.time, dataMap.get(item.time) + item.value);
             } else {
@@ -68,26 +74,27 @@ function ByTimeChart({dataNodes}: IByTimeChartProps) {
             }
         });
 
-        const data: [number, number][] = [];
+        const data: [string, number][] = [];
         dataMap.forEach((value, key) => {
             data.push([key, value]);
         });
+        data.sort((first: [string, number], second: [string, number]) => {
+            return timeToNumber(first[0])-timeToNumber(second[0]);
+        });
         return data;
-
     }
 
-    const dataAllDays: [number, number][] = useMemo(() => {
+    const dataAllDays: [string, number][] = useMemo(() => {
         return calculateData(dataNodes, ALL_DAYS);
     }, [dataNodes]);
 
-    const dataWeekDays: [number, number][] = useMemo(() => {
+    const dataWeekDays: [string, number][] = useMemo(() => {
         return calculateData(dataNodes, WEEK_DAYS);
     }, [dataNodes]);
 
-    const dataWeekEnds: [number, number][] = useMemo(() => {
+    const dataWeekEnds: [string, number][] = useMemo(() => {
         return calculateData(dataNodes, WEEK_END_DAYS);
     }, [dataNodes]);
-
 
     const options = {
         ...chartDefaultOptions,

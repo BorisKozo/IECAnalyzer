@@ -37,7 +37,6 @@ const Main = () => {
     };
 
     useEffect(() => {
-        console.log(fullData.length);
         if (fullData.length > 0) {
             setFilterValues({
                 startDate: fullData[0].fullDateMoment,

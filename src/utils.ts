@@ -1,6 +1,6 @@
 import moment, {Moment} from "moment";
 
-const validLineRegex = /"(\d{2}\/\d{2}\/\d{4})",\s*"(\d{2}:\d{2})",\s*(\d*\.\d*)/;
+const validLineRegex = /"(\d{2}\/\d{2}\/\d{4})",\s*"(\d{2}:\d{2})",\s*(\d*(\.\d*)?)/;
 
 export interface IDataNode {
     date: string;

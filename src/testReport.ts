@@ -1,4 +1,4 @@
-export const testReport = location.host.startsWith('localshost')?`
+export const testReport = location.host.startsWith('localhost')?`
     " ","  "
 "שם לקוח","כתובת"
 " "," "
