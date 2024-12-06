@@ -1,4 +1,4 @@
-export const testReport = location.host.startsWith('localhost')?`
+export const testReport = `
     " ","  "
 "שם לקוח","כתובת"
 " "," "
@@ -35051,4 +35051,4 @@ export const testReport = location.host.startsWith('localhost')?`
 "31/10/2024","23:15",.374
 "31/10/2024","23:30",.375
 "31/10/2024","23:45",.392
-`:'';
+`;
